@@ -12,7 +12,12 @@ public class Game {
         System.out.println("Guess the number:");
         int guessedNumber = scan.nextInt();
 
-
-
+        if (guessedNumber < hiddenNumber) {
+            System.out.println("More!");
+        } else if (guessedNumber > hiddenNumber) {
+            System.out.println("Less!");
+        } else {
+            System.out.println("You guessed the number!");
+        }
     }
 }
