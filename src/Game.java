@@ -11,7 +11,9 @@ public class Game {
         // Update 2 Adauga un numar random la numar ascuns.
         // Update 3 Adauga o functionalitate care numara incercarile si afiseaza la final din cate sa ghicit.
         // Update 4 Adauga un sistem de vieti 8, care scade de fiecare data cand nu ghicesti numarul. Cand ajunge la 0 afiseaza "Game over!" si opreste jocul.
+
         int counter = 0;
+        int lives = 8;
         Random rnd = new Random();
         int hiddenNumber = rnd.nextInt(100);
         Scanner scan = new Scanner(System.in);
@@ -23,10 +25,17 @@ public class Game {
 
             if (guessedNumber < hiddenNumber) {
                 System.out.println("More!");
+                lives--;
             } else if (guessedNumber > hiddenNumber) {
                 System.out.println("Less!");
+                lives--;
             } else {
                 System.out.println("You guessed the number! You used " + counter + " attempts!");
+                break;
+            }
+
+            if (lives == 0){
+                System.out.println("Game over! The number was " + hiddenNumber);
                 break;
             }
         }
